@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Archivos(Actor actores[], Funcion funciones[], Pelicula peliculas[]) {
+void Archivos(Actor actores[], Funcion funciones[], Pelicula peliculas[]) { // cree un void para que el main estuviera mas corto
 	cout << peliculas[0].getListaActores(0).getID() << endl;
 	ifstream archivo_actores, archivo_peliculas;
 	archivo_actores.open("actores.txt");

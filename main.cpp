@@ -82,7 +82,7 @@ int main() {
 	Pelicula peliculas[20];
 
 	Archivos(actores, funciones, peliculas);
-	int n, clave, sala;
+	int n, clave, sala1, hora, min;
 	string nombre;
 	int i = 0;
 	cout << "Ingrese el numero de funciones que habran por el dia: ";
@@ -103,6 +103,7 @@ int main() {
 						{
 							Existe = true;
 							funciones[i].setNumPeli(clave);
+							funciones[i].setCveFuncion(peliculas[c].getTitulo());
 						}
 			}
 			while (Existe == false) {
@@ -116,28 +117,22 @@ int main() {
 				}
 			}
 
-			/*cout << "Ingrese numero de sala de la funcion: ";
-			cin >> sala;
+			cout << "Ingrese numero de sala de la funcion: ";
+			cin >> sala1;
 			cout << endl;
-			Existe = false;
-			for (int c = 0; c < n; c++) {
-				if (sala != funciones[c].getSala())
-				{
-					Existe = true;
-					funciones[i].setSala(sala);
-				}
-			}
-			while (Existe == false) {
-				cout << "Sala ocupada, ingrese otra: ";
-				cin >> sala;
-				for (int c = 0; c < n; c++) {
-					if (sala != funciones[c].getSala())
-					{
-						Existe = true;
-						funciones[i].setSala(sala);
-					}
-				}
-			}*/
+			funciones[i].setSala(sala1);
+
+			cout << "Ingrese hora de la pelicula (entre 0 y 23): ";
+			cin >> hora;
+			cout << endl;
+			cout << "Ingrese minutos de la pelicula (entre 0 y 59): ";
+			cin >> min;
+			cout << endl;
+
+			Hora reloj(hora,min);
+			funciones[i].setHora(reloj);
+			cout << endl << endl << endl;
+			funciones[i].muestra();
 
 		i++;
 	}
